@@ -4,7 +4,6 @@ int main(void)
 {
     int i;
     int grade[5];
-    int *ptr;           // grade 배열에 접근할 포인터
     int sum = 0;
 
     for (i = 0; i < 5; i++)
@@ -13,12 +12,10 @@ int main(void)
         scanf("%d", &grade[i]);
     }
 
-    ptr = grade;        // 배열 이름 = 첫 원소 주소 (&grade[0]와 동일)
-
     for (i = 0; i < 5; i++)
     {
-        printf("grade[%i] = %d\n", i, *(ptr + i));
-        sum += *(ptr + i);
+        printf("grade[%i] = %d\n", i, *(grade + i));
+        sum += *(grade + i);                            // 배열 문법X, 포인터 문법 사용
     }
 
     printf("\n average : %d\n", sum / 5);
